@@ -23,7 +23,8 @@ function App() {
         <Route path='/signup' element={<Signup setToken={setToken}/>}></Route>
         <Route path='*' element={<NoPage />}></Route>
         <Route path='/posts/*' element={<Posts token={token} />}></Route>
-      
+        <Route path='/updatePosts' element={<updatePosts />}></Route>
+        
      </Routes> 
     </>
   )
