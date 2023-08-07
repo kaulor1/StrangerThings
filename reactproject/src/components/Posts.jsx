@@ -1,8 +1,11 @@
-import {Routes, Route,} from 'react-router-dom';
+import {Routes, Route, Link} from 'react-router-dom';
 import { useState, useEffect } from "react";
-import DisplayPosts from "./PostsDisplay"
-import PostDisplayItem from './PostsDisplayItem'
+// import DisplayPosts from "./PostsDisplay"
+// import PostDisplayItem from './PostsDisplayItem'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
+import updatePost from './updatePosts';
+import Message from './Message';
+// import { Navigate } from 'react-router-dom';
 
 function Posts ({ token }) {
     // const [ message, setMessage ] = useState('')
@@ -16,11 +19,13 @@ function Posts ({ token }) {
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [checkbox, setCheckbox] = useState(false);
+    
+    // const navigate = useNavigate();
         
     console.log(title);
     console.log(description);
     console.log(price);
-
+  
      useEffect(() => {
         async function fetchPosts() {
             try
@@ -43,7 +48,7 @@ function Posts ({ token }) {
                 console.log("result.data.posts: ", result.data.posts)
             
                 const isAuthor= `${token}`
-                isAuthor === true ? setPostList() : "not the Author"
+                ? isAuthor === true : "not the Author"
                 
             }
             catch (err){
@@ -78,7 +83,9 @@ return <div>
                 <Checkbox label='WillDeliver' onChange={(e) => setCheckbox(!checkbox)}/>
             </Form.Field>
             <Button onClick={Posts} type='submit'>Post</Button>
-            <Button onClick={upda}
+            <Link to='/updatePosts'>  <Button  onClick={updatePost} type='submit'>Edit</Button>   </Link>
+            <Link to='/delete'>  <Button  onClick={updatePost} type='submit'>Delete</Button>   </Link>
+            <Link to='/message'> <Button onClick={Message} type='submit'>Message</Button></Link>
         </Form>
         
 </div>

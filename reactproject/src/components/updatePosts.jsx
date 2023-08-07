@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -11,6 +12,9 @@ const updatePost = async ({token}) => {
     const [price,setPrice] = useState('');
     const [location,setLocation] = useState('');
     const [checkbox, setCheckbox] = useState(false);
+    const navigate = useNavigate()
+   
+  
     
     
     try {
@@ -33,36 +37,12 @@ const updatePost = async ({token}) => {
       const result = await response.json();
       console.log(result);
       const isAuthor= `${token}`
-                isAuthor === true ? setPostList() : "not the Author"
+                 ? isAuthor === true : "not the Author"
+                 navigate('/posts')
       return result
     } catch (err) {
       console.error(err);
     }
-
-
-
-    const setData = (result) => {
-        let { id, title, description,price ,checkbox } = result;
-        localStorage.setItem('ID', id);
-        localStorage.setItem('title', title);
-        localStorage.setItem('description', description);
-        localStorage.setItem('price', price);
-        localStorage.setItem('Checkbox Value', checkbox)
-    }
-
-    const [id, setID] = useState(null);
-
-useEffect(() => {
-        setID(localStorage.getItem('ID'))
-        setTitle(localStorage.getItem('Title'));
-        setDescription(localStorage.getItem('Description'));
-        setPrice(localStorage.getItem('Price'));
-        setCheckbox(localStorage.getItem('Checkbox '))
-}, []);
-
-
-
-
 
   
 <div>

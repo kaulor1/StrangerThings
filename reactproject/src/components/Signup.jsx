@@ -84,6 +84,7 @@ console.log(result.data.token)
         </label>
         { errorMsg && <h3>{errorMsg}</h3>}
         <button>Sign Up</button>
+        <button>Login</button>
     </form>
 </div>
 }
