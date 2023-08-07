@@ -78,3 +78,12 @@ nav a.active{
   text-decoration: none;
   font-weight: bold;
 }
+.reform{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #212121;
+  color: whitesmoke;
+  flex-direction: column;
+}

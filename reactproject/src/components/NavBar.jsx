@@ -6,8 +6,8 @@ export const Navbar = () => {
     <nav className='primary-nav'>
        <NavLink to='/'>Home</NavLink>
        <NavLink to='/posts'>Posts</NavLink>
-       <NavLink to='/account'>Account</NavLink>
-       <NavLink to='/profile'>Profile</NavLink>
+       <NavLink to='/signup'>Account</NavLink>
+       <NavLink to='/page'>Profile</NavLink>
     </nav>
   )
 }
